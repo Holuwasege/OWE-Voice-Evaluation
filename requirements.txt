@@ -1,0 +1,17 @@
+!pip install transformers librosa datasets jiwer soundfile accelerate --quiet
+!pip install evaluate --quiet
+
+import pandas as pd
+import librosa
+import torch
+from transformers import WhisperProcessor, WhisperForConditionalGeneration
+from transformers import AutoProcessor, AutoModelForCTC, AutoModelForSpeechSeq2Seq
+from transformers import Wav2Vec2ForCTC, AutoProcessor
+from jiwer import wer, cer, Compose, ToLowerCase, RemovePunctuation, RemoveMultipleSpaces, Strip, ExpandCommonEnglishContractions, process_words
+import warnings
+warnings.filterwarnings("ignore")
+from evaluate import load
+from google.colab import drive
+import re
+import matplotlib.pyplot as plt
+import numpy as np
